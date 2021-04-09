@@ -1,21 +1,18 @@
-/*Write a program to filter out falsy values from the array.
-Input: [NaN, 0, 15, false, -22, &#39;&#39;, undefined, 47, null]
-Output: [15, -22, 47]*/
+/*Write a function that concatenates a given string n times (default is 1).
+'Ha' -> 'Ha'
+'Ha', 3 -> 'HaHaHa'*/
 
-function notFalse (a) {
-    var b = [];
-    var c = [];
-    var j = 0;
-    for (var i = 0; i < a.length; i++){
-        b[i]=!(!(a[i]));
-        if (b[i]){
-            c[j]=a[i];
-            j++;
-        }
+function concatenateNTimes (a, b) {
+    var result = ''
+    if (typeof(b)!=='number'||b <= 0){
+        b = 1;
     }
-    return c;
+    for (var i = 0; i < b; i++){
+        result+=a;
+    }
+    return result;
 }
 
-a = [NaN, 0, 15, false, -22, '', undefined, 47, null];
-var result = notFalse(a);
-console.log(result);
+var n = 'Ha';
+console.log(concatenateNTimes(n));
+

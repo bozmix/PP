@@ -1,22 +1,24 @@
-/*Write a program to join all elements of the array into a string skipping elements
-that are undefined, null, NaN or Infinity.
-Input: [NaN, 0, 15, false, -22, &#39;&#39;, undefined, 47, null]
-Output: “015false-2247”*/
+/*Write a function to check whether a string is blank or not.
+'My random string' -> false
+'' -> true
+12 -> false
+false -> false*/
 
-var a = [NaN, 0, 15, false, -22, '', undefined, 47, null];
-
-function merge(k){
-    var b = '';
-    var d;
-
-    for (var i = 0; i < k.length; i++){
-        
-        if (isFinite(k[i])&&k[i]!==null){
-            b+=k[i];
+var isBlank = function (a){
+    var result;
+    var b = typeof(a);
+    var c;
+    if (b==='string'){
+        c = a.length;
+        if (c===0){
+            result = true;
+        } else {
+            result = false;
         }
+    } else {
+        result = false;
     }
-    return b;
+    return result;
 }
-
-var result = merge(a);
-console.log(result);
+var a = 'my random string', b = '', c = 12, d = false;
+console.log(isBlank(b));

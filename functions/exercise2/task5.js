@@ -1,21 +1,22 @@
-/*Write a program that calculates a number of float values in the array.
-Input: [NaN, 23.1, 15, false, -22.5, &#39;&#39;, 4, 7, null]
-Output: 2*/
+/*
+Write a function to find the position of the first occurrence of a character in a string. The
+result should be the position of character. If there are no occurrences of the character, the
+function should return -1.
+*/
 
-function numOfFloats (a){
-    var b, c, d;
-    var counter = 0;
+var positionOfCharacter = function (a, b){
+    var position = 0;
     for (var i = 0; i < a.length; i++){
-        b = parseFloat(a[i]);
-        c = parseInt(a[i]);
-        d = isFinite(c);
-        if (b!==c&&d){
-            counter+=1;
+
+        if (a[i]===b){
+            position = i+1;
+            break;
+        } else {
+            position = -1;
         }
     }
-    return counter;
+    return position;
 }
 
-var a = [NaN, 23.1, 15, false, -22.5, '', 4, 7, null, 2.2, 3.2, -3.2];
-var result = numOfFloats(a);
+var result = positionOfCharacter('position', 'a');
 console.log(result);
