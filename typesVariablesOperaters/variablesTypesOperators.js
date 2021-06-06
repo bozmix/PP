@@ -14,5 +14,5 @@ var a, c;
 //a=true,
 //c=a++;
 console.log(a);
-console.log(typeof(a))
+console.log(typeof a)
 //console.log(c);
