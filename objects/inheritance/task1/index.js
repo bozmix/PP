@@ -18,7 +18,7 @@ Employee.prototype.getSalary = function(){
     return console.log(this.salary);
 }
 Employee.prototype.increaseSalary = function(){
-    return this.salary * 1.1;
+    return this.salary = 1.1 * this.salary;
 }
 
 function Developer (name, surname, job, salary, specialization){
@@ -43,3 +43,12 @@ Manager.prototype.getDepartment = function(){
 Manager.prototype.changeDepartment = function(newDepartment){
     return this.department = newDepartment;
 }
+
+var Pera = new Manager('Pera', 'Peric', 'manager', 80000, 'Financial');
+Pera.getDepartment();
+Pera.changeDepartment('Maintenance');
+Pera.getDepartment();
+Pera.getSalary();
+Pera.increaseSalary();
+Pera.getSalary();
+console.log(Pera.getData());
