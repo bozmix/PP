@@ -16,21 +16,20 @@ class Employee extends Person {
         return (this.name+' '+this.surname+' '+this.salary);
     }
     getSalary(){
-        return console.log(this.salary);
+        return(this.salar);
     }
     increaseSalary(){
-        this.salary *= 1.1;
-        return this.salary; 
+        this.salary *= 1.1; 
     }
 }
 
 class Developer extends Employee {
     constructor(name, surname, job, salary, specialization){
         super(name, surname, job, salary)
-        this.specialization = spacialization
+        this.specialization = specialization
     }
     getSpecialization(){
-        return console.log(this.specialization);
+        return this.specialization;
     }
 }
 
@@ -40,11 +39,10 @@ class Manager extends Employee {
         this.department = department
     }
     getDepartment(){
-        return console.log(this.department);
+        return this.department;
     }
     changeDepartment(newDepartment){
         this.department = newDepartment;
-        return this.department;
     }
 }
 

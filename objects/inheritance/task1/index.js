@@ -15,10 +15,10 @@ Employee.prototype.getData = function(){
     return this.name + ' ' + this.surname + ' ' + this.salary;
 }
 Employee.prototype.getSalary = function(){
-    return console.log(this.salary);
+    return this.salary;
 }
 Employee.prototype.increaseSalary = function(){
-    return this.salary = 1.1 * this.salary;
+    this.salary = 1.1 * this.salary;
 }
 
 function Developer (name, surname, job, salary, specialization){
@@ -28,7 +28,7 @@ function Developer (name, surname, job, salary, specialization){
 Developer.prototype = Object.create(Employee.prototype);
 Developer.prototype.constructor = Developer;
 Developer.prototype.getSpecialization = function(){
-    return console.log(this.specialization);
+    return this.specialization;
 }
 
 function Manager (name, surname, job, salary, department){
@@ -38,10 +38,10 @@ function Manager (name, surname, job, salary, department){
 Manager.prototype = Object.create(Employee.prototype);
 Manager.prototype.constructor = Manager;
 Manager.prototype.getDepartment = function(){
-    return console.log(this.department);
+    return this.department;
 }
 Manager.prototype.changeDepartment = function(newDepartment){
-    return this.department = newDepartment;
+    this.department = newDepartment;
 }
 
 var Pera = new Manager('Pera', 'Peric', 'manager', 80000, 'Financial');
