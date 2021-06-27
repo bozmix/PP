@@ -20,14 +20,17 @@
                     <label for="length">Length (min)</label>
                     <input type="number" name="length" id='length' placeholder="Length in min">
                     <select name="genre" id="genre">
-                        <option value="-" class="genre">-</option>
-                        <option class="genre" value="drama">Drama</option>
-                        <option class="genre" value="comedy">Comedy</option>
-                        <option value="action" class="genre">Action</option>
-                        <option value="thriller" class="genre">Thriller</option>
-                        <option value="horror" class="genre">Horror</option>
-                        <option value="sf" class="genre">Science fiction</option>
+                        <option value="" class="genre">-</option>
+                        <option class="genre" value="Drama">Drama</option>
+                        <option class="genre" value="Comedy">Comedy</option>
+                        <option value="Action" class="genre">Action</option>
+                        <option value="Thriller" class="genre">Thriller</option>
+                        <option value="Horror" class="genre">Horror</option>
+                        <option value="Science-fiction" class="genre">Science fiction</option>
                     </select>
+                    <div class="error">
+
+                    </div>
                     <input class="button" type="button" value="Create movie" id="createMovieButton">
                     <ul id="films">
 
@@ -40,7 +43,7 @@
             <form action="#">
                 <fieldset>
                     <label for="date">Date</label>
-                    <input type="date" name="date" id="date" placeholder="dd/mm/yyyy">
+                    <input type="text" name="date" id="date" placeholder="mm/dd/yyyy">
                     <input class="button" type="button" value="CreateProgram" id="createProgramButton">
                     <ul id="program">
 
@@ -59,7 +62,7 @@
         </div>
     </div>
  
-    <script src="./js/form.js"></script>
     <script src="./js/entities.js"></script>
+    <script src="./js/controler.js"></script>
 </body>
 </html>

@@ -45,3 +45,8 @@ select {
     font-weight: bold;
     padding: 8px;
 }
+
+ul {
+    list-style: none;
+    margin-left: 2.5%;
+}
