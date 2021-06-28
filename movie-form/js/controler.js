@@ -8,8 +8,11 @@ var dateField = document.getElementById('date');
 var dateError = document.getElementById('dateError');
 var programs = document.getElementById('program');
 var createProgramButton = document.getElementById('createProgramButton');
+var moviesSelect = document.getElementById('movie');
+var programSelect = document.getElementById('createdPrograms');
 
 var index = 0;
+var i = 0;
 
 
 function createMovie(){
@@ -38,6 +41,13 @@ function createMovie(){
     var text = document.createTextNode(result);
     li.appendChild(text);
     moviesList.appendChild(li);
+
+    var option = document.createElement('option');
+    var text1 = document.createTextNode(result);
+    option.appendChild(text1);
+    option.setAttribute('id', 'movie-' + i);
+    moviesSelect.appendChild(option);
+    i++;
 
     title.value = '';
     length.value = '';
@@ -85,6 +95,13 @@ function createProgram (){
     li.setAttribute('id', 'programNo-' + index);
     index++;
     programs.appendChild(li);
+
+
+    var option = document.createElement('option');
+    var text1 = document.createTextNode(output);
+    option.appendChild(text1);
+    option.setAttribute('id', 'program-' + index);
+    programSelect.appendChild(option);
     dateField.value = '';
 }
 
