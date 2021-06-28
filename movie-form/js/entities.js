@@ -18,7 +18,21 @@ Movie.prototype.getData = function (){
 
 function Program(date){
     this.date = new Date(date);
-    return this.date.getDate() + '.' + (this.date.getMonth()+1) + '.' + this.date.getFullYear() + '.';
+    return this.date
 }
 
+Program.prototype.numberOfMovies = function(moviesList){
+    var count = 0;
+    moviesList.forEach(function(){
+        count ++
+    })
+    return count
+}
 
+Program.prototype.duration = function(moviesList){
+    var duration = 0;
+    moviesList.forEach(function(movie){
+        duration += movie.length;
+    })
+    return duration;
+}
