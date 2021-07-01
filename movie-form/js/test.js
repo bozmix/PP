@@ -4,12 +4,27 @@ function Movie(title, length, genre){
     this.genre = genre;
 }
 
+function Movies(){
+    this.list = [];
+}
+
+Movies.prototype.addMovieToListOfMovies = function(movie){
+    this.list.push(movie);
+}
+
 Movie.prototype.getShortGenre = function(){
     var result = ''; 
     var array = []; 
     array = this.genre.toUpperCase().split('');
     result = array[0] + array[array.length-1] + '';
     return result 
+}
+
+
+Movie.prototype.getMovieFromListOfMovies = function (stringGetData){
+    var array = stringGetData.split(',');
+    var title = array[0];
+    console.log(title);
 }
 
 Movie.prototype.getData = function (){
@@ -19,6 +34,14 @@ Movie.prototype.getData = function (){
 function Program(date){
     this.date = new Date(date);
     this.moviesList = [];
+}
+
+function Programs (){
+    this.listOfPrograms = [];
+}
+
+Programs.prototype.addProgramToList = function(program){
+    this.listOfPrograms.push(program);
 }
 
 Program.prototype.getDate1 = function(){
@@ -44,3 +67,26 @@ Program.prototype.addMovieToProgram = function(movie){
 Program.prototype.getData = function(){
     return  this.getDate1() + this.numberOfMovies() + ' movies, duration: ' + this.duration() + 'min.';
 }
+
+
+
+var movie1 = new Movie ('Matrix', 15, 'Drama');
+var movie2 = new Movie ('Superman', 12, 'Action');
+var listOfMovies = new Movies;
+listOfMovies.addMovieToListOfMovies(movie1);
+listOfMovies.addMovieToListOfMovies(movie2);
+console.log(listOfMovies);
+
+var program1 = new Program('Jun 30 2021');
+var program2 = new Program('Jul 01 2021');
+var listOfPrograms = new Programs;
+listOfPrograms.addProgramToList(program1);
+listOfPrograms.addProgramToList(program2);
+console.log(listOfPrograms);
+
+program1.addMovieToProgram(movie1);
+program1.addMovieToProgram(movie2);
+
+//console.log(movie1, movie2);
+//console.log(program1.getData() + '\n' + program2.getData());
+console.log(listOfPrograms);

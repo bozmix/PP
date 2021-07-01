@@ -10,9 +10,13 @@ var programs = document.getElementById('program');
 var createProgramButton = document.getElementById('createProgramButton');
 var moviesSelect = document.getElementById('movie');
 var programSelect = document.getElementById('createdPrograms');
+var buttonAddMovie = document.getElementById('AddMovieToProgram');
+
 
 var index = 0;
 var i = 0;
+var moviesArray = [];
+var programsArray = [];
 
 
 function createMovie(){
@@ -36,6 +40,7 @@ function createMovie(){
     }
 
     var movie = new Movie(title.value, length.value, genre.value);
+    moviesArray.push(movie);
     var result = movie.getData();
     var li = document.createElement('li');
     var text = document.createTextNode(result);
@@ -74,7 +79,7 @@ function createProgram (){
     }
 
     var program = new Program(dateField.value);
-    var output = program.getDate() + '.' + (program.getMonth()+1) + '.' + program.getFullYear() + '.';
+    var output = program.getDate1();
     
     if (output.indexOf('NaN') !== -1){
         if (!document.getElementById('errorMessage')){
@@ -88,12 +93,12 @@ function createProgram (){
             return
         }
     }
-
+    programsArray.push(program);
+    output = program.getData();
     var li = document.createElement('li');
     var text = document.createTextNode(output);
     li.appendChild(text);
     li.setAttribute('id', 'programNo-' + index);
-    index++;
     programs.appendChild(li);
 
 
@@ -103,7 +108,26 @@ function createProgram (){
     option.setAttribute('id', 'program-' + index);
     programSelect.appendChild(option);
     dateField.value = '';
+    index++;
+}
+
+function addMovieToProgramButton (){
+    var selectedProgram = programSelect;
+    /*var programId = selectedProgram.getAttribute('id');
+    var index = 0
+    var programIdArray = programId.split('');
+    index = parseInt(programIdArray[programIdArray.length-1]);*/
+   
+    var selectedMovie = moviesSelect;
+    /* var movieId = selectedMovie.getAttribute('id');
+    var movieIndex = 0;
+    var movieIdArray = movieId.split('');
+    movieIndex = parseInt(movieIdArray[movieIdArray.length-1]); 
+    */
+    //programsArray[index].addMovieToProgram(moviesArray[movieIndex]);
+
 }
 
 createMovieButton.addEventListener('click', createMovie);
 createProgramButton.addEventListener('click', createProgram);
+buttonAddMovie.addEventListener('click', addMovieToProgramButton);
