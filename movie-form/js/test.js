@@ -75,18 +75,19 @@ var movie2 = new Movie ('Superman', 12, 'Action');
 var listOfMovies = new Movies;
 listOfMovies.addMovieToListOfMovies(movie1);
 listOfMovies.addMovieToListOfMovies(movie2);
-console.log(listOfMovies);
+//console.log(listOfMovies.list[1].title);
 
 var program1 = new Program('Jun 30 2021');
 var program2 = new Program('Jul 01 2021');
 var listOfPrograms = new Programs;
 listOfPrograms.addProgramToList(program1);
 listOfPrograms.addProgramToList(program2);
-console.log(listOfPrograms);
+console.log(listOfPrograms.listOfPrograms[0].moviesList);
 
 program1.addMovieToProgram(movie1);
 program1.addMovieToProgram(movie2);
+console.log(listOfPrograms.listOfPrograms[0].moviesList[1].title);
 
 //console.log(movie1, movie2);
 //console.log(program1.getData() + '\n' + program2.getData());
-console.log(listOfPrograms);
+//console.log(listOfPrograms);
