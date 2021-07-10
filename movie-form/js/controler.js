@@ -15,8 +15,10 @@ var buttonAddMovie = document.getElementById('AddMovieToProgram');
 
 var index = 0;
 var i = 0;
-var moviesArray = [];
-var programsArray = [];
+var programIndex = 0;
+var movieIndex = 0;
+moviesArray = new Movies;
+programsArray = new Programs;
 
 
 function createMovie(){
@@ -38,10 +40,10 @@ function createMovie(){
         errMessage[0].appendChild(p);
         return    
     }
-
+ 
     var movie = new Movie(title.value, length.value, genre.value);
-    moviesArray.push(movie);
-    var result = movie.getData();
+    moviesArray.addMovieToListOfMovies(movie);
+    var result = movie.getData1();
     var li = document.createElement('li');
     var text = document.createTextNode(result);
     li.appendChild(text);
@@ -93,13 +95,13 @@ function createProgram (){
             return
         }
     }
-    programsArray.push(program);
+    programsArray.addProgramToList(program);
     output = program.getData();
-    var li = document.createElement('li');
+    var p = document.createElement('p');
     var text = document.createTextNode(output);
-    li.appendChild(text);
-    li.setAttribute('id', 'programNo-' + index);
-    programs.appendChild(li);
+    p.appendChild(text);
+    p.setAttribute('id', 'programNo-' + index);
+    programs.appendChild(p);
 
 
     var option = document.createElement('option');
@@ -111,23 +113,31 @@ function createProgram (){
     index++;
 }
 
-function addMovieToProgramButton (){
-    var selectedProgram = programSelect;
-    /*var programId = selectedProgram.getAttribute('id');
-    var index = 0
-    var programIdArray = programId.split('');
-    index = parseInt(programIdArray[programIdArray.length-1]);*/
+function addMovieToProgram (){
+    var selectedProgram = programSelect.options[programSelect.selectedIndex].id;
+    var selectedMovie = moviesSelect.options[moviesSelect.selectedIndex].id;
+    if (!selectedProgram){
+        programIndex = programIndex;
+    } else {
+        programIndex = parseInt(selectedProgram.split('')[selectedProgram.length-1]);
+    }
+    if (!selectedMovie){
+        movieIndex = movieIndex;
+    } else {
+        movieIndex = parseInt(selectedMovie.split('')[selectedMovie.length-1]);
+    }
+    
+    programsArray.listOfPrograms[programIndex].addMovieToProgram(moviesArray.list[movieIndex]);
    
-    var selectedMovie = moviesSelect;
-    /* var movieId = selectedMovie.getAttribute('id');
-    var movieIndex = 0;
-    var movieIdArray = movieId.split('');
-    movieIndex = parseInt(movieIdArray[movieIdArray.length-1]); 
-    */
-    //programsArray[index].addMovieToProgram(moviesArray[movieIndex]);
+    var oldProgramListItem = document.getElementById('program-' + programIndex);
+    oldProgramListItem.textContent = programsArray.listOfPrograms[programIndex].getData();
+   
+    var oldProgramComplete = document.getElementById('programNo-' + programIndex);
+    //console.log(programsArray.listOfPrograms[programIndex].getProgramData())
+    oldProgramComplete.textContent = programsArray.listOfPrograms[programIndex].getData();
 
 }
 
 createMovieButton.addEventListener('click', createMovie);
 createProgramButton.addEventListener('click', createProgram);
-buttonAddMovie.addEventListener('click', addMovieToProgramButton);
+buttonAddMovie.addEventListener('click', addMovieToProgram);
