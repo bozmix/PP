@@ -3,3 +3,11 @@ Write a function that increases each element of the given array by the given val
 	Input: [4, 6, 11, -9, 2.1], 2
 	Output: [6, 8, 13, -7, 4.1]
 */
+
+const increaseElementBy = (arr, a = 1) => {
+	let newArr = [];
+	arr.forEach(el => newArr.push(el + a));
+	return newArr;
+};
+
+console.log(increaseElementBy([4, 6, 11, -9, 2.1]));
