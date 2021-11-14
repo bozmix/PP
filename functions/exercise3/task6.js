@@ -15,5 +15,5 @@ function repeatElements(n, e){
     return a;
 }
 
-var result = repeatElements(10, 5);
+var result = repeatElements(5, 2);
 console.log(result);

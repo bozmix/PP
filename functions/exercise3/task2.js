@@ -16,4 +16,4 @@ function mergeToString(a){
     return b;
 }
  var result = mergeToString([NaN, 0, 15, false, -22,'', undefined, 47, null]);
- console.log(result);
+ console.log(result, typeof(result));

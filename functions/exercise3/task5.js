@@ -17,5 +17,5 @@ function lastElements(array, n){
     }
     return b;
 }
-var result = lastElements([7, 9, 0, -2], 2);
+var result = lastElements([7, 9, 0, -2]);
 console.log(result);
