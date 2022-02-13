@@ -18,5 +18,5 @@ function insertString (string1, string2, n){
     return a;
 }
 
-var result = insertString('my random string', 'JS ');
+var result = insertString('my random string', 'JS ', 11);
 console.log(result);
